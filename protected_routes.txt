@@ -1,0 +1,17 @@
+1.after logging in with credentials --> then in url localhost:5173/chat--> instead of chat if you type login--> it will redirect again to chat page only
+2. /in app.tsx --> protected route --> /chat we can only enable this route once we have auth logged in only
+  return (<main>
+    <Header/>
+    <Routes>
+      <Route path="/" element = {<Home/>}/>
+      <Route path="/login" element = {<Login/>}/>
+      <Route path="/Signup" element = {<Signup/>}/>
+  
+      {auth?.isLoggedIn && auth.user && (<Route path="/Chat" element = {<Chat/>}/>)}
+      <Route path="*" element = {<NotFound/>}/>
+      
+
+    </Routes>
+    
+  </main>
+  );
